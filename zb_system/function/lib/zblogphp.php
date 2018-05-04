@@ -802,9 +802,10 @@ class ZBlogPHP
     }
 
     /**
-     * 载入插件Configs表 Only System Option
+     * 载入插件Configs表 Only System Option.
      */
     private $prvConfigList = array();
+
     public function LoadConfigsOnlySystem($onlysystemoption = true)
     {
         if ($onlysystemoption == true) {
@@ -815,22 +816,23 @@ class ZBlogPHP
         $sql = $this->db->sql->Select($this->table['Config'], array('*'), '', '', '', '');
 
         if ($onlysystemoption == true) {
-            /** @var Config[] $array */
+            /* @var Config[] $array */
             $this->prvConfigList = $this->GetListType('Config', $sql);
             foreach ($this->prvConfigList as $c) {
                 $n = $c->GetItemName();
-                if($n == 'system')
+                if ($n == 'system') {
                     $this->configs[$n] = $c;
+                }
             }
         } else {
             foreach ($this->prvConfigList as $c) {
                 $n = $c->GetItemName();
-                if($n <> 'system')
+                if ($n != 'system') {
                     $this->configs[$n] = $c;
+                }
             }
             $this->prvConfigList = array();
         }
-
     }
 
     /**
