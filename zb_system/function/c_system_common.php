@@ -16,22 +16,22 @@
 function GetScheme($array)
 {
     if (
-        ((array_key_exists('REQUEST_SCHEME', $array)
-          &&
-        (strtolower($array['REQUEST_SCHEME']) == 'https'))
-    ||
-        ((array_key_exists('HTTPS', $array)
-          &&
-        (strtolower($array['HTTPS']) == 'on'))
-    ||
-        ((array_key_exists('HTTP_FROM_HTTPS', $array)
-          &&
-        (strtolower($array['HTTP_FROM_HTTPS']) == 'on'))
-    ||
-        ((array_key_exists('SERVER_PORT', $array)
-          &&
-        (strtolower($array['SERVER_PORT']) == '443'))
-       ) {
+        (array_key_exists('REQUEST_SCHEME', $array)
+            &&
+            (strtolower($array['REQUEST_SCHEME']) == 'https'))
+        ||
+        (array_key_exists('HTTPS', $array)
+            &&
+            (strtolower($array['HTTPS']) == 'on'))
+        ||
+        (array_key_exists('HTTP_FROM_HTTPS', $array)
+            &&
+            (strtolower($array['HTTP_FROM_HTTPS']) == 'on'))
+        ||
+        (array_key_exists('SERVER_PORT', $array)
+            &&
+            (strtolower($array['SERVER_PORT']) == '443'))
+    ) {
         return 'https://';
     }
 
