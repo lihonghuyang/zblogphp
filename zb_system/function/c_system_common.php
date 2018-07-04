@@ -1679,7 +1679,7 @@ function GetBackendCSPHeader()
 // Keep compatibility
         'script-src'  => "'self' 'unsafe-inline' 'unsafe-eval'",
         'style-src'   => "'self' 'unsafe-inline'",
-        'form-action' => "'self'"
+        'form-action' => "'self'",
     );
     foreach ($GLOBALS['hooks']['Filter_Plugin_CSP_Backend'] as $fpname => &$fpsignal) {
         $fpreturn = $fpname($defaultCSP);
