@@ -1672,11 +1672,14 @@ function GetIDArrayByList($array)
 function GetBackendCSPHeader()
 {
     $defaultCSP = array(
+        'base-uri'    => "'self'",
         'default-src' => "'self' data: blob:",
         'img-src'     => "* data: blob:",
         'media-src'   => "* data: blob:",
+// Keep compatibility
         'script-src'  => "'self' 'unsafe-inline' 'unsafe-eval'",
         'style-src'   => "'self' 'unsafe-inline'",
+        'form-action' => "'self'"
     );
     foreach ($GLOBALS['hooks']['Filter_Plugin_CSP_Backend'] as $fpname => &$fpsignal) {
         $fpreturn = $fpname($defaultCSP);
